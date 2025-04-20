@@ -3,109 +3,255 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>4-Day Home Workout Plan with Kettlebell Focus</title>
+    <title>4-Day Home Workout Plan</title>
     <style>
         :root {
-            --primary: #ff5722;
-            --secondary: #2e4a62;
-            --light: #f8f9fa;
-            --dark: #212529;
-            --gray: #6c757d;
-            --success: #28a745;
+            --primary: #ff6b6b;
+            --secondary: #4ecdc4;
+            --dark: #292f36;
+            --light: #f7fff7;
+            --accent: #ff9f1c;
+            --blue: #3498db;
+            --purple: #9b59b6;
+            --orange: #e67e22;
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         body {
-            font-family: 'Roboto', 'Segoe UI', sans-serif;
-            line-height: 1.6;
+            background-color: var(--light);
             color: var(--dark);
-            background-color: #f4f4f4;
+            line-height: 1.6;
         }
         
         .container {
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 0 20px;
         }
         
         header {
-            background: linear-gradient(135deg, var(--primary), #ff8a65);
+            background: linear-gradient(135deg, var(--primary), var(--accent));
             color: white;
             text-align: center;
-            padding: 40px 20px;
-            margin-bottom: 30px;
-            border-radius: 0 0 20px 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
         
         h1 {
             font-size: 2.5rem;
-            margin-bottom: 10px;
-            font-weight: 700;
+            margin-bottom: 1rem;
         }
         
-        .subtitle {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            max-width: 600px;
-            margin: 0 auto;
+        .overview {
+            background-color: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .equipment-guide {
+            margin: 1rem 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .equipment-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 0.5rem;
+            border-radius: 5px;
+            font-weight: 500;
+            background-color: #f5f5f5;
+        }
+        
+        .equipment-dot {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        
+        .dot-blue {
+            background-color: var(--blue);
+        }
+        
+        .dot-orange {
+            background-color: var(--orange);
+        }
+        
+        .dot-purple {
+            background-color: var(--purple);
+        }
+        
+        .progression {
+            background-color: #f5f5f5;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .progression h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .progression-phases {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 1rem;
+        }
+        
+        .phase {
+            flex: 1;
+            min-width: 250px;
+            background-color: white;
+            border-radius: 8px;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .phase h4 {
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        .phase ul {
+            list-style-type: none;
+            padding-left: 1rem;
+        }
+        
+        .phase li {
+            position: relative;
+            padding-left: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .phase li:before {
+            content: "•";
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+        }
+        
+        .day-tabs {
+            display: flex;
+            overflow-x: auto;
+            margin-bottom: 1rem;
+            gap: 0.5rem;
+        }
+        
+        .tab-button {
+            background-color: #e0e0e0;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            cursor: pointer;
+            border-radius: 5px 5px 0 0;
+            font-weight: 600;
+            white-space: nowrap;
+            transition: background-color 0.3s;
+        }
+        
+        .tab-button:hover {
+            background-color: #d0d0d0;
+        }
+        
+        .tab-button.active {
+            background-color: var(--primary);
+            color: white;
         }
         
         .workout-day {
-            background: white;
+            display: none;
+            background-color: white;
             border-radius: 10px;
-            padding: 25px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s ease;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         
-        .workout-day:hover {
-            transform: translateY(-5px);
+        .workout-day.active {
+            display: block;
         }
         
         .day-title {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
             display: flex;
             align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid #f0f0f0;
+            gap: 10px;
         }
         
-        .day-number {
-            background: var(--primary);
+        .day-title span {
+            font-size: 1rem;
+            background-color: var(--primary);
             color: white;
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            margin-right: 15px;
-            font-size: 1.2rem;
-        }
-        
-        h2 {
-            color: var(--secondary);
-            font-size: 1.5rem;
-            margin: 0;
-            flex: 1;
-        }
-        
-        .focus-label {
-            background: var(--secondary);
-            color: white;
-            padding: 5px 10px;
+            padding: 0.25rem 0.5rem;
             border-radius: 5px;
+        }
+        
+        .day-goals {
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .day-goals h4 {
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        
+        .day-equipment {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 1rem 0;
+        }
+        
+        .equipment-tag {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.9rem;
+            padding: 0.5rem;
+            border-radius: 5px;
+            background-color: #f5f5f5;
+        }
+        
+        .workout-section {
+            margin-bottom: 2rem;
+        }
+        
+        .section-title {
+            background-color: var(--dark);
+            color: white;
+            padding: 0.75rem;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .section-title .equipment-note {
             font-size: 0.8rem;
-            margin-left: 10px;
+            padding: 0.25rem 0.5rem;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 3px;
         }
         
         .exercise-list {
@@ -113,9 +259,10 @@
         }
         
         .exercise-item {
-            padding: 12px 0;
+            padding: 0.75rem;
             border-bottom: 1px solid #eee;
             display: flex;
+            justify-content: space-between;
             align-items: center;
         }
         
@@ -123,111 +270,92 @@
             border-bottom: none;
         }
         
-        .exercise-icon {
-            background: #f0f4f8;
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
+        .exercise-left {
             display: flex;
             align-items: center;
-            justify-content: center;
-            margin-right: 15px;
-            font-weight: bold;
-            color: var(--secondary);
+            gap: 10px;
         }
         
-        .exercise-text {
-            flex: 1;
-        }
-        
-        .exercise-sets {
-            color: var(--primary);
-            font-weight: bold;
-            margin-left: 10px;
-        }
-        
-        .section-title {
-            background: var(--secondary);
-            color: white;
-            padding: 8px 15px;
-            border-radius: 5px;
-            font-size: 1.1rem;
-            margin: 20px 0 15px;
+        .equipment-icon {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
             display: inline-block;
         }
         
-        footer {
-            background: var(--secondary);
-            color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-            border-radius: 10px;
-        }
-        
-        .footer-text {
-            max-width: 600px;
-            margin: 0 auto;
+        .rest-note {
+            font-style: italic;
+            color: var(--primary);
+            margin-top: 0.5rem;
             font-size: 0.9rem;
         }
         
-        .kettlebell-icon {
-            display: block;
-            margin: 10px auto;
-            width: 50px;
-            height: auto;
-            fill: currentColor;
+        .circuit-label {
+            font-weight: 600;
+            color: var(--accent);
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
         }
         
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+            background-color: var(--dark);
+            color: white;
+        }
+        
+        /* Responsive styling */
         @media (max-width: 768px) {
             h1 {
                 font-size: 2rem;
             }
             
             .day-title {
+                font-size: 1.5rem;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+            
+            .equipment-guide {
                 flex-direction: column;
                 align-items: flex-start;
             }
             
-            .day-number {
-                margin-bottom: 10px;
-            }
-            
-            .focus-label {
-                margin-left: 0;
-                margin-top: 10px;
-            }
-            
-            .workout-day {
-                padding: 20px;
+            .progression-phases {
+                flex-direction: column;
             }
         }
         
         @media (max-width: 480px) {
+            .container {
+                padding: 0 10px;
+            }
+            
             h1 {
                 font-size: 1.8rem;
             }
             
-            .container {
-                padding: 15px;
+            .tab-button {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
             }
             
-            .workout-day {
-                padding: 15px;
+            .day-equipment {
+                flex-direction: column;
             }
             
             .exercise-item {
                 flex-direction: column;
                 align-items: flex-start;
+                gap: 5px;
             }
             
-            .exercise-icon {
-                margin-bottom: 8px;
-            }
-            
-            .exercise-sets {
-                margin-left: 0;
-                margin-top: 5px;
+            .section-title {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
             }
         }
     </style>
@@ -236,262 +364,502 @@
     <header>
         <div class="container">
             <h1>4-Day Home Workout Plan</h1>
-            <p class="subtitle">A comprehensive kettlebell-focused routine for building strength and burning fat</p>
+            <p>Complete 1-Hour Sessions with Equipment Guide</p>
         </div>
     </header>
     
     <div class="container">
-        <div class="workout-day">
-            <div class="day-title">
-                <div class="day-number">1</div>
-                <h2>UPPER BODY + CARDIO BURST</h2>
-                <span class="focus-label">ARMS FOCUS</span>
+        <section class="overview">
+            <h2>Equipment Guide</h2>
+            <div class="equipment-guide">
+                <div class="equipment-item">
+                    <span class="equipment-dot dot-blue"></span>
+                    <span>8kg Kettlebell</span>
+                </div>
+                <div class="equipment-item">
+                    <span class="equipment-dot dot-orange"></span>
+                    <span>6kg Dumbbells</span>
+                </div>
+                <div class="equipment-item">
+                    <span class="equipment-dot dot-purple"></span>
+                    <span>4kg Dumbbells</span>
+                </div>
             </div>
-            
-            <div class="section-title">Warm-up (5-10 min)</div>
-            <ul class="exercise-list">
-                <li class="exercise-item">
-                    <div class="exercise-icon">W</div>
-                    <div class="exercise-text">Arm swings, jumping jacks, shoulder rolls, arm pulses</div>
-                </li>
-            </ul>
-            
-            <div class="section-title">Main Workout</div>
-            <ul class="exercise-list">
-                <li class="exercise-item">
-                    <div class="exercise-icon">1</div>
-                    <div class="exercise-text">Bicep curls (4kg or 6kg dumbbells)</div>
-                    <div class="exercise-sets">3×12-15</div>
-                </li>
-                <li class="exercise-item">
-                    <div class="exercise-icon">2</div>
-                    <div class="exercise-text">Overhead shoulder press (dumbbells)</div>
-                    <div class="exercise-sets">3×12-15</div>
-                </li>
-                <li class="exercise-item">
-                    <div class="exercise-icon">3</div>
-                    <div class="exercise-text">Tricep kickbacks (4kg dumbbells)</div>
-                    <div class="exercise-sets">3×12-15</div>
-                </li>
-                <li class="exercise-item">
-                    <div class="exercise-icon">4</div>
-                    <div class="exercise-text">Bent-over rows (kettlebell or dumbbells)</div>
-                    <div class="exercise-sets">3×12-15</div>
-                </li>
-                <li class="exercise-item">
-                    <div class="exercise-icon">5</div>
-                    <div class="exercise-text">Lateral raises (4kg dumbbells or lower)</div>
-                    <div class="exercise-sets">3×12-15</div>
-                </li>
-                <li class="exercise-item">
-                    <div class="exercise-icon">6</div>
-                    <div class="exercise-text">Kettlebell upright rows</div>
-                    <div class="exercise-sets">3×12-15</div>
-                </li>
-            </ul>
-            
-            <div class="section-title">Cardio (15 min HIIT – 2-3 rounds)</div>
-            <ul class="exercise-list">
-                <li class="exercise-item">
-                    <div class="exercise-icon">C</div>
-                    <div class="exercise-text">30s jump rope → 30s kettlebell swings → 30s mountain climbers → 30s squat to overhead reach</div>
-                </li>
-            </ul>
+        </section>
+        
+        <div class="day-tabs">
+            <button class="tab-button active" onclick="openWorkoutDay(event, 'day1')">Day 1 - Lower Body + Core</button>
+            <button class="tab-button" onclick="openWorkoutDay(event, 'day2')">Day 2 - Upper Body + Core</button>
+            <button class="tab-button" onclick="openWorkoutDay(event, 'day3')">Day 3 - Fat Burn + Waist Focus</button>
+            <button class="tab-button" onclick="openWorkoutDay(event, 'day4')">Day 4 - Full Body Strength</button>
         </div>
         
-        <div class="workout-day">
-            <div class="day-title">
-                <div class="day-number">2</div>
-                <h2>LOWER BODY + CORE</h2>
-                <span class="focus-label">KETTLEBELL</span>
+        <!-- DAY 1 -->
+        <div id="day1" class="workout-day active">
+            <h3 class="day-title">
+                DAY 1 <span>Lower Body + Core</span>
+            </h3>
+            
+            <div class="day-goals">
+                <h4>Goal: Toned glutes, thighs, legs + flat abs</h4>
+                <div class="day-equipment">
+                    <div class="equipment-tag">
+                        <span class="equipment-dot dot-blue"></span>
+                        <span>Kettlebell</span>
+                    </div>
+                    <div class="equipment-tag">
+                        <span class="equipment-dot dot-orange"></span>
+                        <span>6kg Dumbbells</span>
+                    </div>
+                </div>
             </div>
             
-            <div class="section-title">Warm-up (5-10 min)</div>
-            <ul class="exercise-list">
-                <li class="exercise-item">
-                    <div class="exercise-icon">W</div>
-                    <div class="exercise-text">Glute bridges, leg swings, squats, light lunges</div>
-                </li>
-            </ul>
+            <div class="workout-section">
+                <h4 class="section-title">
+                    <span>Warm-up (10 min)</span>
+                    <span class="equipment-note">No equipment</span>
+                </h4>
+            </div>
             
-            <div class="section-title">Main Workout</div>
-            <ul class="exercise-list">
-                <li class="exercise-item">
-                    <div class="exercise-icon">1</div>
-                    <div class="exercise-text">Goblet squats (kettlebell)</div>
-                    <div class="exercise-sets">3×12-15</div>
-                </li>
-                <li class="exercise-item">
-                    <div class="exercise-icon">2</div>
-                    <div class="exercise-text">Kettlebell Romanian deadlifts</div>
-                    <div class="exercise-sets">3×12-15</div>
-                </li>
-                <li class="exercise-item">
-                    <div class="exercise-icon">3</div>
-                    <div class="exercise-text">Reverse lunges (dumbbells/bodyweight)</div>
-                    <div class="exercise-sets">3×12-15</div>
-                </li>
-                <li class="exercise-item">
-                    <div class="exercise-icon">4</div>
-                    <div class="exercise-text">Kettlebell sumo squats</div>
-                    <div class="exercise-sets">3×12-15</div>
-                </li>
-                <li class="exercise-item">
-                    <div class="exercise-icon">5</div>
-                    <div class="exercise-text">Calf raises (hold kettlebell or dumbbells)</div>
-                    <div class="exercise-sets">3×15-20</div>
-                </li>
-                <li class="exercise-item">
-                    <div class="exercise-icon">6</div>
-                    <div class="exercise-text">Glute bridges with weight (optional)</div>
-                    <div class="exercise-sets">3×15</div>
-                </li>
-            </ul>
+            <div class="workout-section">
+                <h4 class="section-title">
+                    <span>Main Workout (35 min – 3 Rounds)</span>
+                </h4>
+                <ul class="exercise-list">
+                    <li class="exercise-item">
+                        <div class="exercise-left">
+                            <span class="equipment-icon dot-blue"></span>
+                            <span>Goblet Squats</span>
+                        </div>
+                        <span>8kg kettlebell</span>
+                    </li>
+                    <li class="exercise-item">
+                        <div class="exercise-left">
+                            <span class="equipment-icon dot-orange"></span>
+                            <span>Reverse Lunges</span>
+                        </div>
+                        <span>6kg dumbbells (1 in each hand)</span>
+                    </li>
+                    <li class="exercise-item">
+                        <div class="exercise-left">
+                            <span class="equipment-icon dot-orange"></span>
+                            <span>Dumbbell Romanian Deadlifts</span>
+                        </div>
+                        <span>6kg dumbbells</span>
+                    </li>
+                    <li class="exercise-item">
+                        <div class="exercise-left">
+                            <span class="equipment-icon dot-blue"></span>
+                            <span>Kettlebell Swings</span>
+                        </div>
+                        <span>8kg kettlebell</span>
+                    </li>
+                    <li class="exercise-item">
+                        <div class="exercise-left">
+                            <span class="equipment-icon dot-orange"></span>
+                            <span>Side Step-ups</span>
+                        </div>
+                        <span>6kg dumbbells (optional: bodyweight if beginner)</span>
+                    </li>
+                </ul>
+                <p class="rest-note">Rest 30–45s between exercises</p>
+            </div>
             
-            <div class="section-title">Core Finisher (3 rounds)</div>
-            <ul class="exercise-list">
-                <li class="exercise-item">
-                    <div class="exercise-icon">C</div>
-                    <div class="exercise-text">Plank 30s → 20 Russian twists (with KB) → 15 leg raises → 20 flutter kicks → 30s side plank (each side)</div>
-                </li>
-            </ul>
+            <div class="workout-section">
+                <h4 class="section-title">
+                    <span>Core Finisher (10 min)</span>
+                    <span class="equipment-note">Bodyweight</span>
+                </h4>
+            </div>
+            
+            <div class="workout-section">
+                <h4 class="section-title">
+                    <span>Stretch (5 min)</span>
+                    <span class="equipment-note">No equipment</span>
+                </h4>
+            </div>
         </div>
         
-        <div class="workout-day">
-            <div class="day-title">
-                <div class="day-number">3</div>
-                <h2>FULL BODY CIRCUIT + KETTLEBELL HIIT</h2>
-                <span class="focus-label">INTENSITY</span>
+        <!-- DAY 2 -->
+        <div id="day2" class="workout-day">
+            <h3 class="day-title">
+                DAY 2 <span>Upper Body + Core</span>
+            </h3>
+            
+            <div class="day-goals">
+                <h4>Goal: Defined arms, shoulders, back + flat abs</h4>
+                <div class="day-equipment">
+                    <div class="equipment-tag">
+                        <span class="equipment-dot dot-purple"></span>
+                        <span>4kg Dumbbells</span>
+                    </div>
+                    <div class="equipment-tag">
+                        <span class="equipment-dot dot-orange"></span>
+                        <span>6kg Dumbbells</span>
+                    </div>
+                    <div class="equipment-tag">
+                        <span class="equipment-dot dot-blue"></span>
+                        <span>8kg Kettlebell</span>
+                    </div>
+                </div>
             </div>
             
-            <div class="section-title">Warm-up (5 min)</div>
-            <ul class="exercise-list">
-                <li class="exercise-item">
-                    <div class="exercise-icon">W</div>
-                    <div class="exercise-text">Dynamic stretches and light movement</div>
-                </li>
-            </ul>
+            <div class="workout-section">
+                <h4 class="section-title">
+                    <span>Warm-up (10 min)</span>
+                    <span class="equipment-note">No equipment</span>
+                </h4>
+            </div>
             
-            <div class="section-title">Circuit (3 rounds – 40s on / 20s off)</div>
-            <ul class="exercise-list">
-                <li class="exercise-item">
-                    <div class="exercise-icon">1</div>
-                    <div class="exercise-text">Kettlebell deadlift to squat</div>
-                </li>
-                <li class="exercise-item">
-                    <div class="exercise-icon">2</div>
-                    <div class="exercise-text">Jump squats (or bodyweight)</div>
-                </li>
-                <li class="exercise-item">
-                    <div class="exercise-icon">3</div>
-                    <div class="exercise-text">Bent-over rows (dumbbells)</div>
-                </li>
-                <li class="exercise-item">
-                    <div class="exercise-icon">4</div>
-                    <div class="exercise-text">Burpees</div>
-                </li>
-                <li class="exercise-item">
-                    <div class="exercise-icon">5</div>
-                    <div class="exercise-text">Kettlebell swings</div>
-                </li>
-                <li class="exercise-item">
-                    <div class="exercise-icon">6</div>
-                    <div class="exercise-text">Push-ups (incline or full)</div>
-                </li>
-                <li class="exercise-item">
-                    <div class="exercise-icon">7</div>
-                    <div class="exercise-text">High knees</div>
-                </li>
-                <li class="exercise-item">
-                    <div class="exercise-icon">8</div>
-                    <div class="exercise-text">Dumbbell side lunges</div>
-                </li>
-                <li class="exercise-item">
-                    <div class="exercise-icon">9</div>
-                    <div class="exercise-text">Seated Russian twists (KB or DB)</div>
-                </li>
-            </ul>
+            <div class="workout-section">
+                <h4 class="section-title">
+                    <span>Main Workout (35 min – 3 Rounds)</span>
+                </h4>
+                <ul class="exercise-list">
+                    <li class="exercise-item">
+                        <div class="exercise-left">
+                            <span class="equipment-icon dot-orange"></span>
+                            <span>Shoulder Press</span>
+                        </div>
+                        <span>6kg (or 4kg if too heavy)</span>
+                    </li>
+                    <li class="exercise-item">
+                        <div class="exercise-left">
+                            <span class="equipment-icon dot-orange"></span>
+                            <span>Bent-over Rows</span>
+                        </div>
+                        <span>6kg dumbbells</span>
+                    </li>
+                    <li class="exercise-item">
+                        <div class="exercise-left">
+                            <span class="equipment-icon dot-purple"></span>
+                            <span>Bicep Curls</span>
+                        </div>
+                        <span>4kg dumbbells</span>
+                    </li>
+                    <li class="exercise-item">
+                        <div class="exercise-left">
+                            <span class="equipment-icon dot-purple"></span>
+                            <span>Tricep Kickbacks</span>
+                        </div>
+                        <span>4kg dumbbells</span>
+                    </li>
+                    <li class="exercise-item">
+                        <div class="exercise-left">
+                            <span class="equipment-icon dot-purple"></span>
+                            <span>Lateral Raises</span>
+                        </div>
+                        <span>4kg dumbbells</span>
+                    </li>
+                    <li class="exercise-item">
+                        <div class="exercise-left">
+                            <span class="equipment-icon dot-blue"></span>
+                            <span>Single Arm Rows</span>
+                        </div>
+                        <span>8kg kettlebell (1 side at a time)</span>
+                    </li>
+                </ul>
+                <p class="rest-note">Rest 30–45s between exercises</p>
+            </div>
             
-            <div class="section-title">Cool Down</div>
-            <ul class="exercise-list">
-                <li class="exercise-item">
-                    <div class="exercise-icon">C</div>
-                    <div class="exercise-text">Stretch arms, hips, hamstrings</div>
-                </li>
-            </ul>
+            <div class="workout-section">
+                <h4 class="section-title">
+                    <span>Core Finisher (10 min)</span>
+                    <span class="equipment-note">Bodyweight or 4kg dumbbell for Russian Twists</span>
+                </h4>
+            </div>
+            
+            <div class="workout-section">
+                <h4 class="section-title">
+                    <span>Stretch (5 min)</span>
+                    <span class="equipment-note">No equipment</span>
+                </h4>
+            </div>
         </div>
         
-        <div class="workout-day">
-            <div class="day-title">
-                <div class="day-number">4</div>
-                <h2>ARMS + ABS</h2>
-                <span class="focus-label">TONING & SHAPE</span>
+        <!-- DAY 3 -->
+        <div id="day3" class="workout-day">
+            <h3 class="day-title">
+                DAY 3 <span>Fat Burn + Waist & Abs Focus</span>
+            </h3>
+            
+            <div class="day-goals">
+                <h4>Goal: Burn fat, shrink waist, reveal abs</h4>
+                <div class="day-equipment">
+                    <div class="equipment-tag">
+                        <span class="equipment-dot dot-blue"></span>
+                        <span>8kg Kettlebell</span>
+                    </div>
+                    <div class="equipment-tag">
+                        <span class="equipment-dot dot-purple"></span>
+                        <span>4kg Dumbbell (core)</span>
+                    </div>
+                </div>
             </div>
             
-            <div class="section-title">Warm-up (5 min)</div>
-            <ul class="exercise-list">
-                <li class="exercise-item">
-                    <div class="exercise-icon">W</div>
-                    <div class="exercise-text">Dynamic stretches and light movement</div>
-                </li>
-            </ul>
+            <div class="workout-section">
+                <h4 class="section-title">
+                    <span>Warm-up (10 min)</span>
+                    <span class="equipment-note">No equipment</span>
+                </h4>
+            </div>
             
-            <div class="section-title">Arms (3 sets x 15-20 reps)</div>
-            <ul class="exercise-list">
-                <li class="exercise-item">
-                    <div class="exercise-icon">1</div>
-                    <div class="exercise-text">Hammer curls (4kg dumbbells)</div>
-                    <div class="exercise-sets">3×15-20</div>
-                </li>
-                <li class="exercise-item">
-                    <div class="exercise-icon">2</div>
-                    <div class="exercise-text">Overhead tricep extensions (use kettlebell)</div>
-                    <div class="exercise-sets">3×15-20</div>
-                </li>
-                <li class="exercise-item">
-                    <div class="exercise-icon">3</div>
-                    <div class="exercise-text">Front raises (dumbbells)</div>
-                    <div class="exercise-sets">3×15-20</div>
-                </li>
-                <li class="exercise-item">
-                    <div class="exercise-icon">4</div>
-                    <div class="exercise-text">Lateral raises (dumbbells)</div>
-                    <div class="exercise-sets">3×15-20</div>
-                </li>
-                <li class="exercise-item">
-                    <div class="exercise-icon">5</div>
-                    <div class="exercise-text">Arm pulses + circles (light dumbbell or no weight)</div>
-                    <div class="exercise-sets">3×15-20</div>
-                </li>
-            </ul>
+            <div class="workout-section">
+                <h4 class="section-title">
+                    <span>HIIT Workout (30 min – 2 Rounds)</span>
+                    <span class="equipment-note">40s on, 20s rest</span>
+                </h4>
+                <ul class="exercise-list">
+                    <li class="exercise-item">
+                        <span>High Knees</span>
+                        <span>Bodyweight</span>
+                    </li>
+                    <li class="exercise-item">
+                        <span>Burpees</span>
+                        <span>Bodyweight</span>
+                    </li>
+                    <li class="exercise-item">
+                        <span>Jump Squats</span>
+                        <span>Bodyweight</span>
+                    </li>
+                    <li class="exercise-item">
+                        <span>Mountain Climbers</span>
+                        <span>Bodyweight</span>
+                    </li>
+                    <li class="exercise-item">
+                        <span>Jumping Lunges</span>
+                        <span>Bodyweight</span>
+                    </li>
+                    <li class="exercise-item">
+                        <div class="exercise-left">
+                            <span class="equipment-icon dot-blue"></span>
+                            <span>Kettlebell Swings</span>
+                        </div>
+                        <span>8kg kettlebell</span>
+                    </li>
+                    <li class="exercise-item">
+                        <span>Lateral Skaters</span>
+                        <span>Bodyweight</span>
+                    </li>
+                    <li class="exercise-item">
+                        <span>Plank to Pushup</span>
+                        <span>Bodyweight</span>
+                    </li>
+                </ul>
+            </div>
             
-            <div class="section-title">Core Burnout (2 rounds)</div>
-            <ul class="exercise-list">
-                <li class="exercise-item">
-                    <div class="exercise-icon">C1</div>
-                    <div class="exercise-text">30s Plank → 20 Bicycle crunches → 15 Toe touches → 20 Seated in & outs → 20 Oblique crunches (each side)</div>
-                </li>
-            </ul>
+            <div class="workout-section">
+                <h4 class="section-title">
+                    <span>Core Finisher (15 min)</span>
+                </h4>
+                <ul class="exercise-list">
+                    <li class="exercise-item">
+                        <div class="exercise-left">
+                            <span class="equipment-icon dot-purple"></span>
+                            <span>Russian Twists</span>
+                        </div>
+                        <span>4kg dumbbell (or bodyweight)</span>
+                    </li>
+                    <li class="exercise-item">
+                        <div class="exercise-left">
+                            <span class="equipment-icon dot-purple"></span>
+                            <span>Standing Side Bends</span>
+                        </div>
+                        <span>4kg dumbbell</span>
+                    </li>
+                </ul>
+            </div>
             
-            <div class="section-title">Cardio Core (2 rounds, 30s each)</div>
-            <ul class="exercise-list">
-                <li class="exercise-item">
-                    <div class="exercise-icon">C2</div>
-                    <div class="exercise-text">Jumping jacks → KB swings → mountain climbers → high knees → skaters</div>
-                </li>
-            </ul>
+            <div class="workout-section">
+                <h4 class="section-title">
+                    <span>Stretch (5 min)</span>
+                    <span class="equipment-note">No equipment</span>
+                </h4>
+            </div>
         </div>
+        
+        <!-- DAY 4 -->
+        <div id="day4" class="workout-day">
+            <h3 class="day-title">
+                DAY 4 <span>Full Body Strength & Sculpt</span>
+            </h3>
+            
+            <div class="day-goals">
+                <h4>Goal: Total body toning, posture, muscle definition</h4>
+                <div class="day-equipment">
+                    <div class="equipment-tag">
+                        <span class="equipment-dot dot-purple"></span>
+                        <span>4kg Dumbbells</span>
+                    </div>
+                    <div class="equipment-tag">
+                        <span class="equipment-dot dot-orange"></span>
+                        <span>6kg Dumbbells</span>
+                    </div>
+                    <div class="equipment-tag">
+                        <span class="equipment-dot dot-blue"></span>
+                        <span>8kg Kettlebell</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="workout-section">
+                <h4 class="section-title">
+                    <span>Warm-up (10 min)</span>
+                    <span class="equipment-note">No equipment</span>
+                </h4>
+            </div>
+            
+            <div class="workout-section">
+                <h4 class="section-title">
+                    <span>Main Workout (40 min – 3 Circuits)</span>
+                </h4>
+                
+                <div class="circuit-label">Circuit A:</div>
+                <ul class="exercise-list">
+                    <li class="exercise-item">
+                        <div class="exercise-left">
+                            <span class="equipment-icon dot-blue"></span>
+                            <span>Kettlebell Deadlifts</span>
+                        </div>
+                        <span>8kg kettlebell</span>
+                    </li>
+                    <li class="exercise-item">
+                        <div class="exercise-left">
+                            <span class="equipment-icon dot-orange"></span>
+                            <span>Dumbbell Thrusters (Squat + Overhead Press)</span>
+                        </div>
+                        <span>6kg dumbbells</span>
+                    </li>
+                    <li class="exercise-item">
+                        <div class="exercise-left">
+                            <span class="equipment-icon dot-purple"></span>
+                            <span>Renegade Rows</span>
+                        </div>
+                        <span>4kg dumbbells</span>
+                    </li>
+                </ul>
+                
+                <div class="circuit-label">Circuit B:</div>
+                <ul class="exercise-list">
+                    <li class="exercise-item">
+                        <div class="exercise-left">
+                            <span class="equipment-icon dot-orange"></span>
+                            <span>Side Lunges</span>
+                        </div>
+                        <span>6kg dumbbells</span>
+                    </li>
+                    <li class="exercise-item">
+                        <div class="exercise-left">
+                            <span class="equipment-icon dot-purple"></span>
+                            <span>Dumbbell Punches</span>
+                        </div>
+                        <span>4kg dumbbells</span>
+                    </li>
+                    <li class="exercise-item">
+                        <div class="exercise-left">
+                            <span class="equipment-icon dot-orange"></span>
+                            <span>Glute Bridge w/ Dumbbell on hips</span>
+                        </div>
+                        <span>6kg dumbbell</span>
+                    </li>
+                </ul>
+                
+                <div class="circuit-label">Circuit C:</div>
+                <ul class="exercise-list">
+                    <li class="exercise-item">
+                        <div class="exercise-left">
+                            <span class="equipment-icon dot-orange"></span>
+                            <span>Squat to Press</span>
+                        </div>
+                        <span>6kg dumbbells</span>
+                    </li>
+                    <li class="exercise-item">
+                        <div class="exercise-left">
+                            <span class="equipment-icon dot-orange"></span>
+                            <span>Single-leg Deadlifts</span>
+                        </div>
+                        <span>6kg (or 4kg if balance is hard)</span>
+                    </li>
+                    <li class="exercise-item">
+                        <div class="exercise-left">
+                            <span class="equipment-icon dot-purple"></span>
+                            <span>Front Raises</span>
+                        </div>
+                        <span>4kg dumbbells</span>
+                    </li>
+                </ul>
+                <p class="rest-note">Rest 30–60s between circuits</p>
+            </div>
+            
+            <div class="workout-section">
+                <h4 class="section-title">
+                    <span>Core Burnout (10 min)</span>
+                    <span class="equipment-note">Bodyweight</span>
+                </h4>
+            </div>
+            
+            <div class="workout-section">
+                <h4 class="section-title">
+                    <span>Stretch (5 min)</span>
+                    <span class="equipment-note">No equipment</span>
+                </h4>
+            </div>
+        </div>
+        
+        <section class="progression">
+            <h3>🔄 How to Progress Weekly</h3>
+            <div class="progression-phases">
+                <div class="phase">
+                    <h4>Week 1–2:</h4>
+                    <ul>
+                        <li>Focus on form</li>
+                        <li>Rest 45–60 seconds between exercises</li>
+                    </ul>
+                </div>
+                <div class="phase">
+                    <h4>Week 3–6:</h4>
+                    <ul>
+                        <li>Add more reps</li>
+                        <li>Reduce rest periods</li>
+                    </ul>
+                </div>
+                <div class="phase">
+                    <h4>After 6 weeks:</h4>
+                    <ul>
+                        <li>Try circuit style with shorter rest</li>
+                        <li>Go slower on strength days, faster on HIIT days</li>
+                        <li>Add 1 more round or set</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
     </div>
     
     <footer>
         <div class="container">
-            <svg class="kettlebell-icon" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-                <path d="M256 122.5c-16.5 0-30-13.5-30-30s13.5-30 30-30 30 13.5 30 30-13.5 30-30 30zm0-45c-8.3 0-15 6.7-15 15s6.7 15 15 15 15-6.7 15-15-6.7-15-15-15z"/>
-                <path d="M256 452.5c-88.4 0-160-71.6-160-160 0-27.7 6.9-54.2 19.8-77.9l2.4-4.3 28.7-51.4c6.8-12.1 19.6-19.7 33.5-19.7h151.3c13.9 0 26.7 7.5 33.5 19.7l28.7 51.4 2.4 4.3c12.9 23.7 19.8 50.2 19.8 77.9-.1 88.4-71.7 160-160.1 160zm-125.8-226.3c-11.3 20.6-17.2 43.5-17.2 66.3 0 79.1 64.9 144 144 144s144-64.9 144-144c0-22.8-5.9-45.7-17.2-66.3l-2.4-4.3-28.7-51.4c-3.8-6.8-10.9-11-18.7-11H180c-7.8 0-14.9 4.2-18.7 11l-28.7 51.4-2.4 4.3z"/>
-                <path d="M256 122.5c-16.5 0-30-13.5-30-30V77.4c0-16.5 13.5-30 30-30s30 13.5 30 30v15.1c0 16.5-13.5 30-30 30zm0-60.1c-8.3 0-15 6.7-15 15v15.1c0 8.3 6.7 15 15 15s15-6.7 15-15V77.4c0-8.3-6.7-15-15-15z"/>
-            </svg>
-            <p class="footer-text">Always consult with a fitness professional before starting any new exercise program. Remember to listen to your body and modify exercises as needed.</p>
+            <p>4-Day Home Workout Plan with Equipment Guide</p>
+            <p>&copy; 2025 Fitness Program</p>
         </div>
     </footer>
+
+    <script>
+        function openWorkoutDay(evt, dayId) {
+            // Hide all workout day content
+            var workoutDays = document.getElementsByClassName("workout-day");
+            for (var i = 0; i < workoutDays.length; i++) {
+                workoutDays[i].classList.remove("active");
+            }
+            
+            // Remove active class from all tab buttons
+            var tabButtons = document.getElementsByClassName("tab-button");
+            for (var i = 0; i < tabButtons.length; i++) {
+                tabButtons[i].classList.remove("active");
+            }
+            
+            // Show the selected workout day and set the button to active
+            document.getElementById(dayId).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
 </body>
 </html>
