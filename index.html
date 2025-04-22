@@ -1,814 +1,913 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>4-Week Workout Plan for Weight Loss & Toning</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        /* Base Styles */
-        :root {
-            --primary: #4a6fa5;
-            --secondary: #ff6b6b;
-            --light: #f8f9fa;
-            --dark: #343a40;
-            --success: #28a745;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: #f5f7fa;
-            color: #333;
-            line-height: 1.6;
-        }
-        
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-        
-        /* Header */
-        header {
-            background: linear-gradient(135deg, var(--primary), #3a5683);
-            color: white;
-            padding: 1.5rem 0;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-        
-        header h1 {
-            font-size: 2.2rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        header p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-        
-        /* Navigation */
-        nav {
-            background-color: var(--dark);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.8rem 1rem;
-        }
-        
-        .logo {
-            color: white;
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-        
-        .nav-links li {
-            margin-left: 1.5rem;
-        }
-        
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .nav-links a:hover {
-            color: var(--secondary);
-        }
-        
-        .hamburger {
-            display: none;
-            cursor: pointer;
-            color: white;
-            font-size: 1.5rem;
-        }
-        
-        /* Main Content */
-        .intro {
-            background-color: white;
-            padding: 2rem;
-            margin: 2rem 0;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        }
-        
-        .intro h2 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-        
-        .goals {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin: 1rem 0;
-        }
-        
-        .goal-card {
-            background-color: white;
-            border-left: 4px solid var(--secondary);
-            padding: 1rem;
-            flex: 1 1 200px;
-            border-radius: 4px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-        }
-        
-        .workout-days {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-        
-        .day-card {
-            background-color: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
-        
-        .day-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .day-header {
-            background: linear-gradient(135deg, var(--primary), #5d84c3);
-            color: white;
-            padding: 1rem;
-        }
-        
-        .day-header h3 {
-            margin-bottom: 0.5rem;
-        }
-        
-        .day-time {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-        
-        .day-content {
-            padding: 1.5rem;
-        }
-        
-        .section {
-            margin-bottom: 1.5rem;
-        }
-        
-        .section h4 {
-            color: var(--primary);
-            margin-bottom: 0.8rem;
-            display: flex;
-            align-items: center;
-        }
-        
-        .section h4 i {
-            margin-right: 0.5rem;
-        }
-        
-        .exercise {
-            margin-bottom: 1rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .exercise:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-        
-        .exercise-name {
-            font-weight: 600;
-            margin-bottom: 0.3rem;
-        }
-        
-        .exercise-details {
-            font-size: 0.9rem;
-            color: #666;
-        }
-        
-        .equipment {
-            background-color: #f8f9fa;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 2rem 0;
-        }
-        
-        .equipment h2 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-        
-        .equipment-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-        
-        .equipment-item {
-            background-color: white;
-            padding: 1rem;
-            border-radius: 6px;
-            flex: 1 1 200px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-            display: flex;
-            align-items: center;
-        }
-        
-        .equipment-item i {
-            font-size: 1.5rem;
-            margin-right: 1rem;
-            color: var(--primary);
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--dark);
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-            margin-top: 3rem;
-        }
-        
-        footer p {
-            margin-bottom: 1rem;
-        }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-top: 1rem;
-        }
-        
-        .social-links a {
-            color: white;
-            font-size: 1.5rem;
-            transition: color 0.3s;
-        }
-        
-        .social-links a:hover {
-            color: var(--secondary);
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-links {
-                position: fixed;
-                top: 70px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 70px);
-                background-color: var(--dark);
-                flex-direction: column;
-                align-items: center;
-                padding-top: 2rem;
-                transition: left 0.3s;
-            }
-            
-            .nav-links.active {
-                left: 0;
-            }
-            
-            .nav-links li {
-                margin: 1rem 0;
-            }
-            
-            .hamburger {
-                display: block;
-            }
-            
-            header h1 {
-                font-size: 1.8rem;
-            }
-            
-            .day-card {
-                margin-bottom: 1.5rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .goal-card {
-                flex: 1 1 100%;
-            }
-            
-            .equipment-item {
-                flex: 1 1 100%;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TONE - 4-Day Workout Plan</title>
+  <style>
+    :root {
+      --primary: #ff6b6b;
+      --secondary: #6a11cb;
+      --dark: #2d3436;
+      --light: #f9f9f9;
+      --gray: #dfe6e9;
+      --text: #2d3436;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+      color: var(--text);
+      background-color: var(--light);
+      line-height: 1.6;
+    }
+    
+    header {
+      background: linear-gradient(135deg, var(--secondary), var(--primary));
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+    
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" fill="none"><path d="M100 0H0V100H100V0Z" fill="rgba(255,255,255,0.05)"/><path d="M50 30L70 70H30L50 30Z" fill="rgba(255,255,255,0.1)"/></svg>');
+      opacity: 0.3;
+      z-index: 1;
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+    
+    .subheading {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      font-weight: 300;
+    }
+    
+    .goal-box {
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 10px;
+      padding: 1rem;
+      margin: 1rem auto;
+      max-width: 800px;
+    }
+    
+    .goal-title {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+    
+    nav {
+      background-color: white;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    .tab-container {
+      display: flex;
+      max-width: 1200px;
+      margin: 0 auto;
+      overflow-x: auto;
+    }
+    
+    .tab {
+      padding: 1rem 1.5rem;
+      cursor: pointer;
+      color: var(--dark);
+      font-weight: 600;
+      position: relative;
+      white-space: nowrap;
+      transition: all 0.3s ease;
+    }
+    
+    .tab.active {
+      color: var(--primary);
+    }
+    
+    .tab.active::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--secondary), var(--primary));
+    }
+    
+    main {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    
+    .tab-content {
+      display: none;
+    }
+    
+    .tab-content.active {
+      display: block;
+    }
+    
+    .time-breakdown {
+      background-color: white;
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    
+    .time-segment {
+      flex: 1;
+      min-width: 120px;
+      background-color: var(--gray);
+      padding: 0.75rem;
+      border-radius: 8px;
+      text-align: center;
+      font-weight: 500;
+    }
+    
+    .workout-section {
+      background-color: white;
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+    
+    .section-title {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--gray);
+    }
+    
+    .section-icon {
+      background: linear-gradient(135deg, var(--secondary), var(--primary));
+      color: white;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 1rem;
+      font-size: 1.2rem;
+    }
+    
+    h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 0;
+    }
+    
+    .exercise {
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px dashed var(--gray);
+    }
+    
+    .exercise:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    
+    .exercise-name {
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+      display: flex;
+      align-items: center;
+    }
+    
+    .exercise-instruction {
+      color: #666;
+      font-size: 0.9rem;
+      padding-left: 1.5rem;
+    }
+    
+    .rest-note {
+      background-color: #FFF3F3;
+      border-left: 3px solid var(--primary);
+      padding: 0.75rem;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+    }
+    
+    footer {
+      background-color: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 3rem;
+    }
+    
+    .footer-content {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .back-to-top {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--secondary), var(--primary));
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      margin-top: 1rem;
+      transition: transform 0.3s ease;
+    }
+    
+    .back-to-top:hover {
+      transform: translateY(-3px);
+    }
+    
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+      
+      .tab {
+        padding: 1rem;
+      }
+      
+      .time-segment {
+        min-width: calc(50% - 0.5rem);
+      }
+    }
+    
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.75rem;
+      }
+      
+      .subheading {
+        font-size: 1rem;
+      }
+      
+      .tab {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+      }
+      
+      .time-segment {
+        min-width: 100%;
+      }
+    }
+
+    /* Animation for tab switching */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .tab-content.active {
+      animation: fadeIn 0.5s ease forwards;
+    }
+
+    .emoji {
+      margin-right: 5px;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>4-Day Workout Plan</h1>
-            <p>Weight loss to 45kg with toned body, defined arms, small waist, abs, and lean legs</p>
+  <header>
+    <div class="header-container">
+      <h1>TONE</h1>
+      <p class="subheading">4-Day Workout Plan</p>
+      
+      <div class="goal-box">
+        <p class="goal-title">PROGRAM GOAL</p>
+        <p>Weight loss (to 45kg), toned body with defined arms, small waist, abs, and lean legs</p>
+        <p>Duration: 6 months to 1 year</p>
+        <p>Equipment: 4kg & 6kg dumbbells, 8kg kettlebell</p>
+      </div>
+    </div>
+  </header>
+  
+  <nav>
+    <div class="tab-container">
+      <div class="tab active" data-target="day1">Day 1: Lower Body + Core</div>
+      <div class="tab" data-target="day2">Day 2: Upper Body + Core</div>
+      <div class="tab" data-target="day3">Day 3: Cardio & Abs</div>
+      <div class="tab" data-target="day4">Day 4: Full Body</div>
+    </div>
+  </nav>
+  
+  <main>
+    <!-- DAY 1 -->
+    <div id="day1" class="tab-content active">
+      <h2>DAY 1 – Lower Body + Core</h2>
+      
+      <div class="time-breakdown">
+        <div class="time-segment"><span class="emoji">⏱️</span> 10 min<br>Warm-up</div>
+        <div class="time-segment"><span class="emoji">🏋️‍♀️</span> 35 min<br>Strength</div>
+        <div class="time-segment"><span class="emoji">🔥</span> 10 min<br>Core</div>
+        <div class="time-segment"><span class="emoji">🧘</span> 5 min<br>Stretch</div>
+      </div>
+      
+      <div class="workout-section">
+        <div class="section-title">
+          <div class="section-icon">🧍</div>
+          <h3>Warm-up (10 min)</h3>
         </div>
-    </header>
-    
-    <nav>
-        <div class="container nav-container">
-            <div class="logo">FitPlan</div>
-            <ul class="nav-links">
-                <li><a href="#overview">Overview</a></li>
-                <li><a href="#day1">Day 1</a></li>
-                <li><a href="#day2">Day 2</a></li>
-                <li><a href="#day3">Day 3</a></li>
-                <li><a href="#day4">Day 4</a></li>
-                <li><a href="#equipment">Equipment</a></li>
-            </ul>
-            <div class="hamburger">
-                <i class="fas fa-bars"></i>
-            </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">Jumping jacks</p>
+          <p class="exercise-instruction">1 minute</p>
         </div>
-    </nav>
-    
-    <main class="container">
-        <section id="overview" class="intro">
-            <h2>Workout Plan Overview</h2>
-            <p>This 4-day workout plan is designed for weight loss (target: 45kg) and body toning, focusing on defined arms, small waist, abs, and lean legs. Each session lasts approximately 1 hour.</p>
-            <p><strong>Duration:</strong> Long-term (6 months to 1 year)</p>
-            
-            <div class="goals">
-                <div class="goal-card">
-                    <h4><i class="fas fa-bullseye"></i> Primary Goal</h4>
-                    <p>Weight loss to 45kg</p>
-                </div>
-                <div class="goal-card">
-                    <h4><i class="fas fa-clock"></i> Duration</h4>
-                    <p>1 hour sessions</p>
-                </div>
-                <div class="goal-card">
-                    <h4><i class="fas fa-calendar-alt"></i> Frequency</h4>
-                    <p>4 days per week</p>
-                </div>
-                <div class="goal-card">
-                    <h4><i class="fas fa-dumbbell"></i> Equipment</h4>
-                    <p>Dumbbells & Kettlebell</p>
-                </div>
-            </div>
-        </section>
         
-        <section class="workout-days">
-            <!-- DAY 1 -->
-            <article id="day1" class="day-card">
-                <div class="day-header">
-                    <h3>DAY 1 – Lower Body + Core</h3>
-                    <div class="day-time">10 min warm-up | 35 min strength | 10 min core | 5 min stretch</div>
-                </div>
-                <div class="day-content">
-                    <div class="section">
-                        <h4><i class="fas fa-fire"></i> Warm-up (10 min) – Bodyweight Only</h4>
-                        <div class="exercise">
-                            <div class="exercise-name">Jumping jacks</div>
-                            <div class="exercise-details">1 min</div>
-                        </div>
-                        <div class="exercise">
-                            <div class="exercise-name">Bodyweight squats</div>
-                            <div class="exercise-details">1 min</div>
-                        </div>
-                        <div class="exercise">
-                            <div class="exercise-name">Glute bridges</div>
-                            <div class="exercise-details">2 min</div>
-                        </div>
-                        <div class="exercise">
-                            <div class="exercise-name">Leg swings + dynamic lunges</div>
-                            <div class="exercise-details">2 min</div>
-                        </div>
-                        <div class="exercise">
-                            <div class="exercise-name">Hip circles + high knees</div>
-                            <div class="exercise-details">4 min</div>
-                        </div>
-                    </div>
-                    
-                    <div class="section">
-                        <h4><i class="fas fa-dumbbell"></i> Main Workout – 3 Rounds (35 min)</h4>
-                        <div class="exercise">
-                            <div class="exercise-name">Goblet Squats</div>
-                            <div class="exercise-details">12 reps → Use 8kg kettlebell or 6kg dumbbell</div>
-                        </div>
-                        <div class="exercise">
-                            <div class="exercise-name">Reverse Lunges</div>
-                            <div class="exercise-details">10 reps/leg → Use 4kg dumbbells (or 6kg for more challenge)</div>
-                        </div>
-                        <div class="exercise">
-                            <div class="exercise-name">Dumbbell Romanian Deadlifts</div>
-                            <div class="exercise-details">12 reps → Use 6kg dumbbells</div>
-                        </div>
-                        <div class="exercise">
-                            <div class="exercise-name">Kettlebell Swings</div>
-                            <div class="exercise-details">20 reps → Use 8kg kettlebell</div>
-                        </div>
-                        <div class="exercise">
-                            <div class="exercise-name">Side Step-ups</div>
-                            <div class="exercise-details">10 reps/leg → Use 4kg dumbbells for added resistance</div>
-                        </div>
-                        <p><em>Rest 30–45s between exercises</em></p>
-                    </div>
-                    
-                    <div class="section">
-                        <h4><i class="fas fa-burn"></i> Core Finisher (2 Rounds – 10 min) – Bodyweight Only</h4>
-                        <div class="exercise">
-                            <div class="exercise-name">Leg Raises</div>
-                            <div class="exercise-details">15 reps</div>
-                        </div>
-                        <div class="exercise">
-                            <div class="exercise-name">Side Plank with Reach-Through</div>
-                            <div class="exercise-details">30s/side</div>
-                        </div>
-                        <div class="exercise">
-                            <div class="exercise-name">Toe Touch Crunches</div>
-                            <div class="exercise-details">20 reps</div>
-                        </div>
-                        <div class="exercise">
-                            <div class="exercise-name">Glute Bridge Pulses</div>
-                            <div class="exercise-details">30s</div>
-                        </div>
-                    </div>
-                    
-                    <div class="section">
-                        <h4><i class="fas fa-wind"></i> Cooldown & Stretch (5 min)</h4>
-                    </div>
-                </div>
-            </article>
-            
-            <!-- DAY 2 -->
-            <article id="day2" class="day-card">
-                <div class="day-header">
-                    <h3>DAY 2 – Upper Body + Core</h3>
-                    <div class="day-time">10 min warm-up | 35 min strength | 10 min core | 5 min stretch</div>
-                </div>
-                <div class="day-content">
-                    <div class="section">
-                        <h4><i class="fas fa-fire"></i> Warm-up (10 min) – Bodyweight + Light Dumbbell</h4>
-                        <div class="exercise">
-                            <div class="exercise-name">Arm circles + shoulder rolls</div>
-                            <div class="exercise-details">2 min</div>
-                        </div>
-                        <div class="exercise">
-                            <div class="exercise-name">Light dumbbell punches (4kg or no weight)</div>
-                            <div class="exercise-details">2 min</div>
-                        </div>
-                        <div class="exercise">
-                            <div class="exercise-name">Shoulder shrugs + jumping jacks</div>
-                            <div class="exercise-details">2 min</div>
-                        </div>
-                        <div class="exercise">
-                            <div class="exercise-name">Incline pushups</div>
-                            <div class="exercise-details">2 min</div>
-                        </div>
-                        <div class="exercise">
-                            <div class="exercise-name">Cat-cow stretch + thread the needle</div>
-                            <div class="exercise-details">2 min</div>
-                        </div>
-                    </div>
-                    
-                    <div class="section">
-                        <h4><i class="fas fa-dumbbell"></i> Main Workout – 3 Rounds (35 min)</h4>
-                        <div class="exercise">
-                            <div class="exercise-name">Shoulder Press</div>
-                            <div class="exercise-details">12 reps → Use 4kg dumbbells (or 6kg if strong)</div>
-                        </div>
-                        <div class="exercise">
-                            <div class="exercise-name">Bent-over Rows</div>
-                            <div class="exercise-details">12 reps → Use 6kg dumbbells or 8kg kettlebell</div>
-                        </div>
-                        <div class="exercise">
-                            <div class="exercise-name">Bicep Curls</div>
-                            <div class="exercise-details">12 reps → Use 4kg dumbbells</div>
-                        </div>
-                        <div class="exercise">
-                            <div class="exercise-name">Tricep Kickbacks</div>
-                            <div class="exercise-details">12 reps → Use 4kg dumbbells</div>
-                        </div>
-                        <div class="exercise">
-                            <div class="exercise-name">Lateral Raises</div>
-                            <div class="exercise-details">10 reps → Use 4kg dumbbells</div>
-                        </div>
-                        <div class="exercise">
-                            <div class="exercise-name">Kettlebell Single Arm Rows</div>
-                            <div class="exercise-details">10 reps/arm → Use 8kg kettlebell</div>
-                        </div>
-                        <p><em>Rest 30–45s between exercises</em></p>
-                    </div>
-                    
-                    <div class="section">
-                        <h4><i class="fas fa-burn"></i> Core Finisher (2 Rounds – 10 min) – Bodyweight or Light Dumbbell</h4>
-                        <div class="exercise">
-                            <div class="exercise-name">Bicycle Crunches</div>
-                            <div class="exercise-details">30 reps</div>
-                        </div>
-                        <div class="exercise">
-                            <div class="exercise-name">Russian Twists</div>
-                            <div class="exercise-details">30 reps (with 4kg dumbbell)</div>
-                        </div>
-                        <div class="exercise">
-                            <div class="exercise-name">Side Plank Dips</div>
-                            <div class="exercise-details">20 reps/side</div>
-                        </div>
-                        <div class="exercise">
-                            <div class="exercise-name">Plank Hold</div>
-                            <div class="exercise-details">1 min</div>
-                        </div>
-                    </div>
-                    
-                    <div class="section">
-                        <h4><i class="fas fa-wind"></i> Cooldown & Stretch (5 min)</h4>
-                    </div>
-                </div>
-            </article>
-            
-            <!-- DAY 3 -->
-            <article id="day3" class="day-card">
-                <div class="day-header">
-                    <h3>DAY 3 – Cardio Burn + Waist & Abs Focus</h3>
-                    <div class="day-time">10 min warm-up | 30 min HIIT | 15 min core | 5 min stretch</div>
-                </div>
-                <div class="day-content">
-                    <div class="section">
-                        <h4><i class="fas fa-fire"></i> Warm-up (10 min) – Bodyweight</h4>
-                        <div class="exercise">
-                            <div class="exercise-name">Imaginary jump rope</div>
-                            <div class="exercise-details">2 min</div>
-                        </div>
-                        <div class="exercise">
-                            <div class="exercise-name">Arm + leg swings</div>
-                            <div class="exercise-details">2 min</div>
-                        </div>
-                        <div class="exercise">
-                            <div class="exercise-name">Walking lunges</div>
-                            <div class="exercise-details">2 min</div>
-                        </div>
-                        <div class="exercise">
-                            <div class="exercise-name">Standing hip openers</div>
-                            <div class="exercise-details">2 min</div>
-                        </div>
-                        <div class="exercise">
-                            <div class="exercise-name">March in place</div>
-                            <div class="exercise-details">2 min</div>
-                        </div>
-                    </div>
-                    
-                    <div class="section">
-                        <h4><i class="fas fa-running"></i> HIIT Workout (30 min) – 2 rounds, 40s work / 20s rest</h4>
-                        <div class="exercise">
-                            <div class="exercise-name">High Knees</div>
-                            <div class="exercise-details">Bodyweight</div>
-                        </div>
-                        <div class="exercise">
-                            <div class="exercise-name">Burpees (or step burpees)</div>
-                            <div class="exercise-details">Bodyweight</div>
-                        </div>
-                        <div class="exercise">
-                            <div class="exercise-name">Jump Squats</div>
-                            <div class="exercise-details">Bodyweight</div>
-                        </div>
-                        <div class="exercise">
-                            <div class="exercise-name">Mountain Climbers</div>
-                            <div class="exercise-details">Bodyweight</div>
-                        </div>
-                        <div class="exercise">
-                            <div class="exercise-name">Jumping Lunges</div>
-                            <div class="exercise-details">Bodyweight</div>
-                        </div>
-                        <div class="exercise">
-                            <div class="exercise-name">Kettlebell Swings</div>
-                            <div class="exercise-details">Use 8kg kettlebell</div>
-                        </div>
-                        <div class="exercise">
-                            <div class="exercise-name">Lateral Skaters</div>
-                            <div class="exercise-details">Bodyweight</div>
-                        </div>
-                        <div class="exercise">
-                            <div class="exercise-name">Plank to Pushup</div>
-                            <div class="exercise-details">Bodyweight</div>
-                        </div>
-                    </div>
-                    
-                    <div class="section">
-                        <h4><i class="fas fa-burn"></i> Core Focus (15 min) – Bodyweight or Light Dumbbell</h4>
-                        <div class="exercise">
-                            <div class="exercise-name">Side Crunches</div>
-                            <div class="exercise-details">15/side</div>
-                        </div>
-                        <div class="exercise">
-                            <div class="exercise-name">Plank with Shoulder Taps</div>
-                            <div class="exercise-details">1 min</div>
-                        </div>
-                        <div class="exercise">
-                            <div class="exercise-name">Reverse Crunches</div>
-                            <div class="exercise-details">20 reps</div>
-                        </div>
-                        <div class="exercise">
-                            <div class="exercise-name">Dumbbell Side Bends</div>
-                            <div class="exercise-details">15/side (4kg)</div>
-                        </div>
-                        <div class="exercise">
-                            <div class="exercise-name">Heel Touches</div>
-                            <div class="exercise-details">30 reps</div>
-                        </div>
-                        <div class="exercise">
-                            <div class="exercise-name">Seated In & Outs</div>
-                            <div class="exercise-details">20 reps</div>
-                        </div>
-                    </div>
-                    
-                    <div class="section">
-                        <h4><i class="fas fa-wind"></i> Cooldown & Stretch (5 min)</h4>
-                    </div>
-                </div>
-            </article>
-            
-            <!-- DAY 4 -->
-            <article id="day4" class="day-card">
-                <div class="day-header">
-                    <h3>DAY 4 – Full Body Strength & Sculpt</h3>
-                    <div class="day-time">10 min warm-up | 40 min circuits | 10 min core</div>
-                </div>
-                <div class="day-content">
-                    <div class="section">
-                        <h4><i class="fas fa-fire"></i> Warm-up (10 min)</h4>
-                        <div class="exercise">
-                            <div class="exercise-name">Jog or march in place</div>
-                            <div class="exercise-details">2 min</div>
-                        </div>
-                        <div class="exercise">
-                            <div class="exercise-name">Dynamic squats</div>
-                            <div class="exercise-details">2 min</div>
-                        </div>
-                        <div class="exercise">
-                            <div class="exercise-name">Arm circles + dumbbell presses</div>
-                            <div class="exercise-details">2 min</div>
-                        </div>
-                        <div class="exercise">
-                            <div class="exercise-name">Cat-cow + downward dog</div>
-                            <div class="exercise-details">2 min</div>
-                        </div>
-                        <div class="exercise">
-                            <div class="exercise-name">Core activation</div>
-                            <div class="exercise-details">2 min</div>
-                        </div>
-                    </div>
-                    
-                    <div class="section">
-                        <h4><i class="fas fa-dumbbell"></i> Main Workout – 3 Circuits (40 min)</h4>
-                        <h5>Circuit A:</h5>
-                        <div class="exercise">
-                            <div class="exercise-name">Kettlebell Deadlift</div>
-                            <div class="exercise-details">12 reps (8kg)</div>
-                        </div>
-                        <div class="exercise">
-                            <div class="exercise-name">Dumbbell Thrusters (Squat + Press)</div>
-                            <div class="exercise-details">12 reps (4kg or 6kg dumbbells)</div>
-                        </div>
-                        <div class="exercise">
-                            <div class="exercise-name">Renegade Rows</div>
-                            <div class="exercise-details">10 reps/side (4kg or 6kg dumbbells)</div>
-                        </div>
-                        
-                        <h5>Circuit B:</h5>
-                        <div class="exercise">
-                            <div class="exercise-name">Side Lunges</div>
-                            <div class="exercise-details">10 reps/side (Use 4kg dumbbell)</div>
-                        </div>
-                        <div class="exercise">
-                            <div class="exercise-name">Dumbbell Punches</div>
-                            <div class="exercise-details">20 reps (Use 4kg dumbbells)</div>
-                        </div>
-                        <div class="exercise">
-                            <div class="exercise-name">Glute Bridges with Dumbbell</div>
-                            <div class="exercise-details">15 reps (4kg or 6kg on hips)</div>
-                        </div>
-                        
-                        <h5>Circuit C:</h5>
-                        <div class="exercise">
-                            <div class="exercise-name">Dumbbell Squat to Press</div>
-                            <div class="exercise-details">12 reps (4kg or 6kg)</div>
-                        </div>
-                        <div class="exercise">
-                            <div class="exercise-name">Single-Leg Deadlifts</div>
-                            <div class="exercise-details">10 reps/leg (Bodyweight or 4kg dumbbell)</div>
-                        </div>
-                        <div class="exercise">
-                            <div class="exercise-name">Front Raises</div>
-                            <div class="exercise-details">12 reps (Use 4kg dumbbells)</div>
-                        </div>
-                        <p><em>Rest 30–60s between circuits</em></p>
-                    </div>
-                    
-                    <div class="section">
-                        <h4><i class="fas fa-burn"></i> Core Burnout (10 min) – Bodyweight or Light Dumbbell</h4>
-                        <div class="exercise">
-                            <div class="exercise-name">Plank</div>
-                            <div class="exercise-details">1 min</div>
-                        </div>
-                        <div class="exercise">
-                            <div class="exercise-name">Flutter Kicks</div>
-                            <div class="exercise-details">30s</div>
-                        </div>
-                        <div class="exercise">
-                            <div class="exercise-name">Russian Twists</div>
-                            <div class="exercise-details">20 reps (with 4kg)</div>
-                        </div>
-                        <div class="exercise">
-                            <div class="exercise-name">Leg Raises</div>
-                            <div class="exercise-details">15 reps</div>
-                        </div>
-                        <div class="exercise">
-                            <div class="exercise-name">V-Ups</div>
-                            <div class="exercise-details">15 reps</div>
-                        </div>
-                        <div class="exercise">
-                            <div class="exercise-name">Side Plank Hold</div>
-                            <div class="exercise-details">1 min (each side)</div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        </section>
-        
-        <section id="equipment" class="equipment">
-            <h2>Required Equipment</h2>
-            <div class="equipment-list">
-                <div class="equipment-item">
-                    <i class="fas fa-dumbbell"></i>
-                    <div>
-                        <h4>Dumbbells</h4>
-                        <p>4kg & 6kg</p>
-                    </div>
-                </div>
-                <div class="equipment-item">
-                    <i class="fas fa-weight-hanging"></i>
-                    <div>
-                        <h4>Kettlebell</h4>
-                        <p>8kg</p>
-                    </div>
-                </div>
-                <div class="equipment-item">
-                    <i class="fas fa-yoga-mat"></i>
-                    <div>
-                        <h4>Yoga Mat</h4>
-                        <p>Optional but recommended</p>
-                    </div>
-                </div>
-                <div class="equipment-item">
-                    <i class="fas fa-stopwatch"></i>
-                    <div>
-                        <h4>Timer</h4>
-                        <p>For interval training</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-    
-    <footer>
-        <div class="container">
-            <p>4-Day Workout Plan for Weight Loss & Toning</p>
-            <p>Follow consistently for 6 months to 1 year for best results</p>
-            <div class="social-links">
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
-                <a href="#"><i class="fab fa-pinterest"></i></a>
-            </div>
+        <div class="exercise">
+          <p class="exercise-name">Bodyweight squats</p>
+          <p class="exercise-instruction">1 minute</p>
         </div>
-    </footer>
-    
-    <script>
-        // Mobile menu toggle
-        const hamburger = document.querySelector('.hamburger');
-        const navLinks = document.querySelector('.nav-links');
         
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
+        <div class="exercise">
+          <p class="exercise-name">Glute bridges</p>
+          <p class="exercise-instruction">2 minutes</p>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">Leg swings + dynamic lunges</p>
+          <p class="exercise-instruction">2 minutes</p>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">Hip circles + high knees</p>
+          <p class="exercise-instruction">4 minutes</p>
+        </div>
+      </div>
+      
+      <div class="workout-section">
+        <div class="section-title">
+          <div class="section-icon">🏋️</div>
+          <h3>Main Workout – 3 Rounds (35 min)</h3>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">Goblet Squats</p>
+          <p class="exercise-instruction">12 reps | Use 8kg kettlebell or 6kg dumbbell</p>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">Reverse Lunges</p>
+          <p class="exercise-instruction">10 reps/leg | Use 4kg dumbbells (or 6kg for more challenge)</p>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">Dumbbell Romanian Deadlifts</p>
+          <p class="exercise-instruction">12 reps | Use 6kg dumbbells</p>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">Kettlebell Swings</p>
+          <p class="exercise-instruction">20 reps | Use 8kg kettlebell</p>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">Side Step-ups</p>
+          <p class="exercise-instruction">10 reps/leg | Use 4kg dumbbells for added resistance</p>
+        </div>
+        
+        <div class="rest-note">
+          <span class="emoji">⏸️</span> Rest 30–45s between exercises
+        </div>
+      </div>
+      
+      <div class="workout-section">
+        <div class="section-title">
+          <div class="section-icon">🔥</div>
+          <h3>Core Finisher (2 Rounds – 10 min)</h3>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">Leg Raises</p>
+          <p class="exercise-instruction">15 reps</p>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">Side Plank with Reach-Through</p>
+          <p class="exercise-instruction">30s/side</p>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">Toe Touch Crunches</p>
+          <p class="exercise-instruction">20 reps</p>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">Glute Bridge Pulses</p>
+          <p class="exercise-instruction">30s</p>
+        </div>
+      </div>
+      
+      <div class="workout-section">
+        <div class="section-title">
+          <div class="section-icon">🧘</div>
+          <h3>Cooldown &amp; Stretch (5 min)</h3>
+        </div>
+        <p>Focus on stretching your worked muscles with emphasis on legs, glutes, and lower back.</p>
+      </div>
+    </div>
+    
+    <!-- DAY 2 -->
+    <div id="day2" class="tab-content">
+      <h2>DAY 2 – Upper Body + Core</h2>
+      
+      <div class="time-breakdown">
+        <div class="time-segment"><span class="emoji">⏱️</span> 10 min<br>Warm-up</div>
+        <div class="time-segment"><span class="emoji">🏋️‍♀️</span> 35 min<br>Strength</div>
+        <div class="time-segment"><span class="emoji">🔥</span> 10 min<br>Core</div>
+        <div class="time-segment"><span class="emoji">🧘</span> 5 min<br>Stretch</div>
+      </div>
+      
+      <div class="workout-section">
+        <div class="section-title">
+          <div class="section-icon">🧍</div>
+          <h3>Warm-up (10 min)</h3>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">Arm circles + shoulder rolls</p>
+          <p class="exercise-instruction">2 minutes</p>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">Light dumbbell punches</p>
+          <p class="exercise-instruction">2 minutes | Use 4kg or no weight</p>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">Shoulder shrugs + jumping jacks</p>
+          <p class="exercise-instruction">2 minutes</p>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">Incline pushups</p>
+          <p class="exercise-instruction">2 minutes</p>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">Cat-cow stretch + thread the needle</p>
+          <p class="exercise-instruction">2 minutes</p>
+        </div>
+      </div>
+      
+      <div class="workout-section">
+        <div class="section-title">
+          <div class="section-icon">🏋️</div>
+          <h3>Main Workout – 3 Rounds (35 min)</h3>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">Shoulder Press</p>
+          <p class="exercise-instruction">12 reps | Use 4kg dumbbells (or 6kg if strong)</p>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">Bent-over Rows</p>
+          <p class="exercise-instruction">12 reps | Use 6kg dumbbells or 8kg kettlebell</p>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">Bicep Curls</p>
+          <p class="exercise-instruction">12 reps | Use 4kg dumbbells</p>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">Tricep Kickbacks</p>
+          <p class="exercise-instruction">12 reps | Use 4kg dumbbells</p>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">Lateral Raises</p>
+          <p class="exercise-instruction">10 reps | Use 4kg dumbbells</p>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">Kettlebell Single Arm Rows</p>
+          <p class="exercise-instruction">10 reps/arm | Use 8kg kettlebell</p>
+        </div>
+        
+        <div class="rest-note">
+          <span class="emoji">⏸️</span> Rest 30–45s between exercises
+        </div>
+      </div>
+      
+      <div class="workout-section">
+        <div class="section-title">
+          <div class="section-icon">🔥</div>
+          <h3>Core Finisher (2 Rounds – 10 min)</h3>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">Bicycle Crunches</p>
+          <p class="exercise-instruction">30 reps</p>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">Russian Twists</p>
+          <p class="exercise-instruction">30 reps | with 4kg dumbbell</p>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">Side Plank Dips</p>
+          <p class="exercise-instruction">20 reps/side</p>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">Plank Hold</p>
+          <p class="exercise-instruction">1 minute</p>
+        </div>
+      </div>
+      
+      <div class="workout-section">
+        <div class="section-title">
+          <div class="section-icon">🧘</div>
+          <h3>Cooldown &amp; Stretch (5 min)</h3>
+        </div>
+        <p>Focus on stretching your upper body, shoulders, arms, and back muscles.</p>
+      </div>
+    </div>
+    
+    <!-- DAY 3 -->
+    <div id="day3" class="tab-content">
+      <h2>DAY 3 – Cardio Burn + Waist &amp; Abs Focus</h2>
+      
+      <div class="time-breakdown">
+        <div class="time-segment"><span class="emoji">⏱️</span> 10 min<br>Warm-up</div>
+        <div class="time-segment"><span class="emoji">🏃</span> 30 min<br>HIIT</div>
+        <div class="time-segment"><span class="emoji">🔥</span> 15 min<br>Core</div>
+        <div class="time-segment"><span class="emoji">🧘</span> 5 min<br>Stretch</div>
+      </div>
+      
+      <div class="workout-section">
+        <div class="section-title">
+          <div class="section-icon">🧍</div>
+          <h3>Warm-up (10 min)</h3>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">Imaginary jump rope</p>
+          <p class="exercise-instruction">2 minutes</p>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">Arm + leg swings</p>
+          <p class="exercise-instruction">2 minutes</p>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">Walking lunges</p>
+          <p class="exercise-instruction">2 minutes</p>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">Standing hip openers</p>
+          <p class="exercise-instruction">2 minutes</p>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">March in place</p>
+          <p class="exercise-instruction">2 minutes</p>
+        </div>
+      </div>
+      
+      <div class="workout-section">
+        <div class="section-title">
+          <div class="section-icon">🏃</div>
+          <h3>HIIT Workout (30 min) – 2 rounds, 40s work / 20s rest</h3>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">High Knees</p>
+          <p class="exercise-instruction">Bodyweight</p>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">Burpees (or step burpees)</p>
+          <p class="exercise-instruction">Bodyweight</p>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">Jump Squats</p>
+          <p class="exercise-instruction">Bodyweight</p>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">Mountain Climbers</p>
+          <p class="exercise-instruction">Bodyweight</p>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">Jumping Lunges</p>
+          <p class="exercise-instruction">Bodyweight</p>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">Kettlebell Swings</p>
+          <p class="exercise-instruction">Use 8kg kettlebell</p>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">Lateral Skaters</p>
+          <p class="exercise-instruction">Bodyweight</p>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">Plank to Pushup</p>
+          <p class="exercise-instruction">Bodyweight</p>
+        </div>
+      </div>
+      
+      <div class="workout-section">
+        <div class="section-title">
+          <div class="section-icon">🔥</div>
+          <h3>Core Focus (15 min)</h3>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">Side Crunches</p>
+          <p class="exercise-instruction">15 reps per side</p>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">Plank with Shoulder Taps</p>
+          <p class="exercise-instruction">1 minute</p>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">Reverse Crunches</p>
+          <p class="exercise-instruction">20 reps</p>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">Dumbbell Side Bends</p>
+          <p class="exercise-instruction">15 reps per side | Use 4kg dumbbell</p>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">Heel Touches</p>
+          <p class="exercise-instruction">30 reps</p>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">Seated In &amp; Outs</p>
+          <p class="exercise-instruction">20 reps</p>
+        </div>
+      </div>
+      
+      <div class="workout-section">
+        <div class="section-title">
+          <div class="section-icon">🧘</div>
+          <h3>Cooldown &amp; Stretch (5 min)</h3>
+        </div>
+        <p>Focus on full-body stretching with emphasis on your core and legs.</p>
+      </div>
+    </div>
+    
+    <!-- DAY 4 -->
+    <div id="day4" class="tab-content">
+      <h2>DAY 4 – Full Body Strength &amp; Sculpt</h2>
+      
+      <div class="time-breakdown">
+        <div class="time-segment"><span class="emoji">⏱️</span> 10 min<br>Warm-up</div>
+        <div class="time-segment"><span class="emoji">🏋️‍♀️</span> 40 min<br>Circuits</div>
+        <div class="time-segment"><span class="emoji">🔥</span> 10 min<br>Core</div>
+      </div>
+      
+      <div class="workout-section">
+        <div class="section-title">
+          <div class="section-icon">🧍</div>
+          <h3>Warm-up (10 min)</h3>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">Jog or march in place</p>
+          <p class="exercise-instruction">2 minutes</p>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">Dynamic squats</p>
+          <p class="exercise-instruction">2 minutes</p>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">Arm circles + dumbbell presses</p>
+          <p class="exercise-instruction">2 minutes</p>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">Cat-cow + downward dog</p>
+          <p class="exercise-instruction">2 minutes</p>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">Core activation</p>
+          <p class="exercise-instruction">2 minutes</p>
+        </div>
+      </div>
+      
+      <div class="workout-section">
+        <div class="section-title">
+          <div class="section-icon">🏋️</div>
+          <h3>Main Workout – 3 Circuits (40 min)</h3>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name"><strong>Circuit A:</strong></p>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">Kettlebell Deadlift</p>
+          <p class="exercise-instruction">12 reps | Use 8kg kettlebell</p>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">Dumbbell Thrusters (Squat + Press)</p>
+          <p class="exercise-instruction">12 reps | Use 4kg or 6kg dumbbells</p>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">Renegade Rows</p>
+          <p class="exercise-instruction">10 reps per side | Use 4kg or 6kg dumbbells</p>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name"><strong>Circuit B:</strong></p>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">Side Lunges</p>
+          <p class="exercise-instruction">10 reps per side | Use 4kg dumbbell</p>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">Dumbbell Punches</p>
+          <p class="exercise-instruction">20 reps | Use 4kg dumbbells</p>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">Glute Bridges with Dumbbell</p>
+          <p class="exercise-instruction">15 reps | Use 4kg or 6kg on hips</p>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name"><strong>Circuit C:</strong></p>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">Dumbbell Squat to Press</p>
+          <p class="exercise-instruction">12 reps | Use 4kg or 6kg</p>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">Single-Leg Deadlifts</p>
+          <p class="exercise-instruction">10 reps per leg | Bodyweight or 4kg dumbbell</p>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">Front Raises</p>
+          <p class="exercise-instruction">12 reps | Use 4kg dumbbells</p>
+        </div>
+        
+        <div class="rest-note">
+          <span class="emoji">⏸️</span>
+              <div class="workout-section">
+        <div class="section-title">
+          <div class="section-icon">🔥</div>
+          <h3>Core Burnout (10 min)</h3>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">Plank</p>
+          <p class="exercise-instruction">1 minute</p>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">Flutter Kicks</p>
+          <p class="exercise-instruction">30 seconds</p>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">Russian Twists</p>
+          <p class="exercise-instruction">20 reps | with 4kg dumbbell</p>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">Leg Raises</p>
+          <p class="exercise-instruction">15 reps</p>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">V-Ups</p>
+          <p class="exercise-instruction">15 reps</p>
+        </div>
+        
+        <div class="exercise">
+          <p class="exercise-name">Side Plank Hold</p>
+          <p class="exercise-instruction">1 minute each side</p>
+        </div>
+      </div>
+      
+      <div class="workout-section">
+        <div class="section-title">
+          <div class="section-icon">🧘</div>
+          <h3>Cooldown &amp; Stretch (5 min)</h3>
+        </div>
+        <p>Full body stretching focusing on all major muscle groups worked today.</p>
+      </div>
+    </div>
+  </main>
+  
+  <footer>
+    <div class="footer-content">
+      <p>Stay consistent and you'll see results!</p>
+      <p>Remember to pair this workout plan with proper nutrition and adequate rest.</p>
+      <a href="#" class="back-to-top">Back to Top</a>
+    </div>
+  </footer>
+
+  <script>
+    // Tab functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const tabs = document.querySelectorAll('.tab');
+      const tabContents = document.querySelectorAll('.tab-content');
+      
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          // Remove active class from all tabs and contents
+          tabs.forEach(t => t.classList.remove('active'));
+          tabContents.forEach(c => c.classList.remove('active'));
+          
+          // Add active class to clicked tab and corresponding content
+          tab.classList.add('active');
+          const target = tab.getAttribute('data-target');
+          document.getElementById(target).classList.add('active');
         });
-        
-        // Close menu when a link is clicked
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
+      });
+      
+      // Back to top button
+      const backToTop = document.querySelector('.back-to-top');
+      backToTop.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
         });
-    </script>
+      });
+      
+      // Add animation to exercises on scroll
+      const observerOptions = {
+        threshold: 0.1
+      };
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = 1;
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, observerOptions);
+      
+      const exercises = document.querySelectorAll('.exercise');
+      exercises.forEach(exercise => {
+        exercise.style.opacity = 0;
+        exercise.style.transform = 'translateY(20px)';
+        exercise.style.transition = 'all 0.5s ease';
+        observer.observe(exercise);
+      });
+    });
+  </script>
 </body>
 </html>
